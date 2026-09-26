@@ -1,0 +1,11 @@
+{
+    "windows_processed": 40964,
+    "healthy": 30881,
+    "warning": 9172,
+    "critical": 911,
+    "anomalies_detected": 820,
+    "average_health_index": 0.784,
+    "average_rul": 42.14,
+    "status": "completed",
+    "avg_rul": 42.14
+}
