@@ -3,106 +3,260 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Industrial Bearing Health Monitoring | Project Webpage</title>
+    <title>CHRONOUS-GUARD | AI Industrial Predictive Maintenance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; background-color: #0e1117; color: #c9d1d9; margin: 0; padding: 20px; }
-        .container { max-width: 1000px; margin: auto; background: #161b22; padding: 30px; border-radius: 8px; border: 1px solid #30363d; }
-        h1, h2, h3 { color: #58a6ff; }
-        h1 { border-bottom: 2px solid #30363d; padding-bottom: 10px; }
-        h2 { border-bottom: 1px solid #30363d; padding-bottom: 5px; margin-top: 30px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { border: 1px solid #30363d; padding: 10px; text-align: left; }
-        th { background-color: #21262d; color: #58a6ff; }
-        .btn { display: inline-block; padding: 10px 20px; background-color: #238636; color: white; text-decoration: none; border-radius: 6px; font-weight: bold; margin-top: 15px; }
-        .btn:hover { background-color: #2ea043; }
-        code { background: #21262d; padding: 2px 6px; border-radius: 4px; color: #ff7b72; }
+        :root {
+            --bg-color: #0e1117;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --text-main: #c9d1d9;
+            --text-bright: #ffffff;
+            --accent-green: #238636;
+            --accent-blue: #58a6ff;
+            --accent-orange: #d29922;
+            --accent-red: #f85149;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: rgba(35, 134, 54, 0.2);
+            color: #3fb950;
+            border: 1px solid var(--accent-green);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: var(--text-bright);
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #8b949e;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-blue);
+            color: #0d1117;
+        }
+
+        .btn-secondary {
+            background-color: #21262d;
+            color: var(--text-bright);
+            border: 1px solid var(--border-color);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .card h3 {
+            color: var(--text-bright);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            color: var(--accent-blue);
+        }
+
+        .metric-val {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--text-bright);
+            margin: 0.5rem 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #21262d;
+            color: var(--text-bright);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: #8b949e;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
+
+    <header>
+        <div class="status-badge"><i class="fa-solid fa-circle-check"></i> System Operational | NASA IMS Pipeline Ready</div>
+        <h1>🛡️ CHRONOUS-GUARD</h1>
+        <p class="subtitle">Industrial AI Predictive Maintenance Platform & CMMS Webhook Microservice</p>
+        <div class="btn-group">
+            <a href="https://github.com/moushika-spec/CHRONOUS-GUARD" class="btn btn-primary" target="_blank"><i class="fa-brands fa-github"></i> View Source Code</a>
+            <a href="https://github.com/moushika-spec/CHRONOUS-GUARD#readme" class="btn btn-secondary" target="_blank"><i class="fa-solid fa-book"></i> Quick Start Docs</a>
+        </div>
+    </header>
+
     <div class="container">
-        <h1>Industrial Bearing Health Monitoring Dashboard</h1>
-        <p><strong>Course:</strong> 23AID205 - Artificial Intelligence & Data Science Project</p>
-
-        <h2>i. Introduction & Motivation</h2>
-        <p>Mechanical bearing failures account for over 40% of industrial machinery breakdowns. Unplanned downtime leads to millions of dollars in losses. This project builds a real-time predictive maintenance dashboard using machine learning to detect bearing degradation early and predict Remaining Useful Life (RUL).</p>
-
-        <h2>ii. Problem Statement & Relevance</h2>
-        <p>Traditional reactive and preventive maintenance strategies are either too late or unnecessarily costly. By analyzing high-frequency 20kHz vibration telemetry from NASA IMS bearings, our AI pipeline provides continuous condition monitoring, reduces unplanned downtime, and optimizes maintenance schedules.</p>
-
-        <h2>iii. Objectives & Scope</h2>
-        <ul>
-            <li>Ingest and process 20kHz continuous vibration telemetry signals.</li>
-            <li>Detect operational anomalies using an unsupervised Isolation Forest model.</li>
-            <li>Forecast Remaining Useful Life (RUL) using a Random Forest Regressor.</li>
-            <li>Translate predictive health metrics into financial ROI ($29.6M+ estimated savings).</li>
-            <li>Automate work orders via industrial CMMS webhook API integration.</li>
-        </ul>
-
-        <h2>iv. Methodology</h2>
-        <h3>1. Dataset</h3>
-        <p>NASA IMS Bearing Dataset containing 40,964 vibration signal snapshots tracked across run-to-failure cycles.</p>
         
-        <h3>2. Feature Engineering</h3>
-        <p>Extracted Windowed Kurtosis (impulsive shocks), Rolling Z-Score (baseline drift), and FFT Frequency Peak Anomalies.</p>
+        <!-- Metric Overview -->
+        <div class="grid">
+            <div class="card">
+                <h3><i class="fa-solid fa-microchip card-icon"></i> Primary Architecture</h3>
+                <div class="metric-val">Isolation Forest</div>
+                <p>Paired with Random Forest RUL Regression for exponential degradation curves.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-bolt card-icon"></i> Signal Telemetry</h3>
+                <div class="metric-val">20 kHz</div>
+                <p>Windowed Kurtosis, Rolling Z-Score, and FFT Peak Frequency extraction.</p>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-paper-plane card-icon"></i> CMMS Webhook</h3>
+                <div class="metric-val">FastAPI</div>
+                <p>Automated JSON payload generation and field maintenance dispatching.</p>
+            </div>
+        </div>
 
-        <h3>3. Model Selection & Trade-Off Benchmarks</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Architecture</th>
-                    <th>RUL RMSE (Cycles)</th>
-                    <th>Edge Latency (ms)</th>
-                    <th>Memory Footprint</th>
-                    <th>Deployment Decision</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Linear Thresholding</td>
-                    <td>18.4</td>
-                    <td>&lt; 1.0 ms</td>
-                    <td>&lt; 1 MB</td>
-                    <td>Rejected (Linear Drift Assumption)</td>
-                </tr>
-                <tr>
-                    <td><strong>Random Forest Regressor</strong></td>
-                    <td><strong>4.2</strong></td>
-                    <td><strong>12.4 ms</strong></td>
-                    <td><strong>12 MB</strong></td>
-                    <td><strong>Selected (Optimal Edge Accuracy/Speed)</strong></td>
-                </tr>
-                <tr>
-                    <td>XGBoost Regressor</td>
-                    <td>4.0</td>
-                    <td>18.2 ms</td>
-                    <td>15 MB</td>
-                    <td>Evaluated (Higher Overhead)</td>
-                </tr>
-                <tr>
-                    <td>LSTM Deep Neural Network</td>
-                    <td>3.8</td>
-                    <td>145.0 ms</td>
-                    <td>85 MB</td>
-                    <td>Rejected (High Edge Memory Footprint)</td>
-                </tr>
-            </tbody>
-        </table>
+        <!-- Features Matrix -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h3><i class="fa-solid fa-list-check card-icon"></i> Core Capabilities</h3>
+            <ul style="padding-left: 1.2rem; margin-top: 0.5rem;">
+                <li><strong>Emergency CMMS Dispatch:</strong> Generates structured work order tickets (<code>WO-2026-XXXX</code>) via localized FastAPI endpoints.</li>
+                <li><strong>Financial ROI Calculator:</strong> Quantifies cost avoidance by balancing downtime cost ($/hr) against scheduled repairs.</li>
+                <li><strong>AI Copilot & XAI Diagnostics:</strong> Natural language query assistant explaining underlying vibration features to field operators.</li>
+                <li><strong>Telemetry Buffer Diagnostics:</strong> Real-time streaming simulation monitoring retention health for high-frequency signal windows.</li>
+            </ul>
+        </div>
 
-        <h2>v. Results & Discussion</h2>
-        <p>The deployed Random Forest model achieved a low RUL RMSE of 4.2 cycles with an inference latency of 12.4ms. The integrated ROI engine calculated an estimated $29,607,500 in downtime cost savings across 911 critical bearing detections.</p>
+        <!-- Benchmark Matrix Table -->
+        <div class="card">
+            <h3><i class="fa-solid fa-chart-simple card-icon"></i> Candidate Model Benchmarks</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Architecture</th>
+                        <th>RUL RMSE</th>
+                        <th>Edge Latency</th>
+                        <th>Memory Footprint</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Linear Threshold Baseline</td>
+                        <td>18.4 Cycles</td>
+                        <td>&lt; 1.0 ms</td>
+                        <td>&lt; 1 MB</td>
+                        <td><span style="color: var(--accent-red);">Rejected</span></td>
+                    </tr>
+                    <tr style="background-color: rgba(88, 166, 255, 0.1);">
+                        <td><strong>Random Forest Regressor</strong></td>
+                        <td><strong>4.2 Cycles</strong></td>
+                        <td><strong>12.4 ms</strong></td>
+                        <td><strong>12 MB</strong></td>
+                        <td><span style="color: #3fb950;"><strong>Selected</strong></span></td>
+                    </tr>
+                    <tr>
+                        <td>XGBoost Regressor</td>
+                        <td>4.0 Cycles</td>
+                        <td>18.2 ms</td>
+                        <td>15 MB</td>
+                        <td><span style="color: var(--accent-orange);">Evaluated</span></td>
+                    </tr>
+                    <tr>
+                        <td>LSTM Deep Neural Network</td>
+                        <td>3.8 Cycles</td>
+                        <td>145.0 ms</td>
+                        <td>85 MB</td>
+                        <td><span style="color: var(--accent-red);">Rejected</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <h2>vi. Conclusion & Future Scope</h2>
-        <p>The system successfully bridges high-accuracy ML predictions with actionable industrial workflows. Future scope includes flashing models onto physical ESP32 microcontrollers and subscribing directly to live MQTT shop-floor telemetry streams.</p>
-
-        <h2>vii. References</h2>
-        <ul>
-            <li>NASA Prognostics Center of Excellence Data Set Repository.</li>
-            <li>Qiu, H., et al. "Wavelet-based weakness signal detection for gear health monitoring." Advanced Engineering Informatics, 2006.</li>
-        </ul>
-
-        <h2>viii. Contributors & Repository Link</h2>
-        <p>Developed as part of course 23AID205.</p>
-        <a href="https://github.com/moushika-spec/CHRONOUS-GUARD" class="btn" target="_blank">View GitHub Repository</a>
     </div>
+
+    <footer>
+        <p>CHRONOUS-GUARD Platform | Course: 23AID205 - Artificial Intelligence & Data Science Project</p>
+    </footer>
+
 </body>
 </html>
