@@ -16,7 +16,7 @@ class Dashboard:
         st.title("Industrial Bearing Health Monitoring Dashboard")
 
         st.caption(
-            "NASA IMS Bearing Dataset | Student 3 Dashboard"
+            "NASA IMS Bearing Dataset"
         )
 
     def show_metrics(self):
