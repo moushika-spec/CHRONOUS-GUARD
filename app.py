@@ -358,36 +358,42 @@ with col1:
         st.chat_message("user").write(user_query)
 
         q = user_query.lower()
-        if "critical" in q or "why" in q or "flagged" in q:
+        if any(w in q for w in ["critical", "why", "flagged", "anomaly", "score", "failure", "causes"]):
             response_text = (
                 f"**Critical Status Analysis:**\n"
                 f"- Currently **{critical_count} critical units** exceed safety thresholds due to high impulse vibration shocks.\n"
                 f"- Isolation Forest Anomaly Score > 0.58 indicates significant structural raceway wear."
             )
-        elif "action" in q or "recommend" in q or "schedule" in q or "plan" in q:
+        elif any(w in q for w in ["action", "recommend", "schedule", "plan", "repair"]):
             response_text = (
                 f"**Recommended Action Plan:**\n"
                 f"1. Schedule immediate physical inspection for the {critical_count} critical units.\n"
                 f"2. Perform lubrication checks on the {warning_count} units displaying warning signs.\n"
                 f"3. Schedule bearing replacement before estimated RUL drops below {avg_rul:.0f} cycles."
             )
-        elif "rul" in q or "model" in q or "regression" in q or "estimate" in q:
+        elif any(w in q for w in ["rul", "model", "regression", "estimate", "life", "cycles"]):
             response_text = (
                 "**RUL Methodology:** RUL is estimated using a **Random Forest Regressor** trained "
                 "on non-linear exponential degradation curves. Feature inputs include Windowed Kurtosis, "
                 "Rolling Z-score, Isolation Forest anomaly score, and Normalized Health Index."
             )
-        elif "kurtosis" in q or "fft" in q or "z-score" in q or "feature" in q:
+        elif any(w in q for w in ["kurtosis", "fft", "z-score", "feature", "vibration", "signal"]):
             response_text = (
                 "**Feature Diagnostics:**\n"
                 "- **Windowed Kurtosis**: Detects early structural shock impacts (spikes).\n"
                 "- **Rolling Z-Score**: Tracks overall baseline energy shifts in signal amplitude.\n"
                 "- **FFT Frequency Peak Anomalies**: Identifies characteristic bearing fault pass frequencies."
             )
+        elif any(w in q for w in ["health", "bearing", "status", "condition"]):
+            response_text = (
+                f"**Health Diagnostics:**\n"
+                f"- Current average system health index is **{avg_health:.2f}**.\n"
+                f"- Fleet status reports {critical_count} critical units and {warning_count} warning units currently active."
+            )
         else:
             response_text = (
                 f"**Telemetry Insight:** Analyzed model metrics for '{user_query}'. "
-                f"Current average system health is **{avg_health:.2f}** with an average remaining RUL is **{avg_rul:.1f} cycles**."
+                f"Current average system health is **{avg_health:.2f}** with an average remaining RUL of **{avg_rul:.1f} cycles**."
             )
 
         st.session_state.copilot_history.append({"role": "assistant", "content": response_text})
@@ -418,5 +424,5 @@ Recommended Action: Schedule immediate bearing inspection for Critical group.
         label="💾 Download Diagnostic Summary Report",
         data=report_content,
         file_name="Chronous_Guard_Diagnostic_Report.txt",
-        mime="text/plain"
+        mime="application/text"
     )
