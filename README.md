@@ -13,7 +13,7 @@
 
 - **Live GitHub Pages Webpage:** [https://moushika-spec.github.io/CHRONOUS-GUARD/](https://moushika-spec.github.io/CHRONOUS-GUARD/)
 - **GitHub Source Code Repository:** [https://github.com/moushika-spec/CHRONOUS-GUARD](https://github.com/moushika-spec/CHRONOUS-GUARD)
-- **Course Reference:** `23AID205 - Artificial Intelligence & Data Science Project`
+- **Course Reference:** `23AID205 - Intoduction to AI and ML`
 
 ---
 
